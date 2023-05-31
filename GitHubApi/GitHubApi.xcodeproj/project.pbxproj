@@ -16,6 +16,32 @@
 		A70F44B02A26C48100DC3902 /* GitHubApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44AF2A26C48100DC3902 /* GitHubApiTests.swift */; };
 		A70F44BA2A26C48100DC3902 /* GitHubApiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44B92A26C48100DC3902 /* GitHubApiUITests.swift */; };
 		A70F44BC2A26C48100DC3902 /* GitHubApiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44BB2A26C48100DC3902 /* GitHubApiUITestsLaunchTests.swift */; };
+		A70F44CA2A26C61300DC3902 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44C92A26C61300DC3902 /* ClientError.swift */; };
+		A70F44CC2A26C63800DC3902 /* NetworkCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44CB2A26C63800DC3902 /* NetworkCore.swift */; };
+		A70F44CE2A26C74A00DC3902 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44CD2A26C74A00DC3902 /* Reachability.swift */; };
+		A70F44D12A26C78000DC3902 /* ReachabilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44D02A26C78000DC3902 /* ReachabilityModel.swift */; };
+		A70F44D42A26C8A100DC3902 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44D32A26C8A100DC3902 /* URLSessionProtocol.swift */; };
+		A70F44D62A26C8C500DC3902 /* ClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44D52A26C8C500DC3902 /* ClientProtocol.swift */; };
+		A70F44D82A26C8E500DC3902 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44D72A26C8E500DC3902 /* Result.swift */; };
+		A70F44DB2A26C8FF00DC3902 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44DA2A26C8FF00DC3902 /* ImageCacher.swift */; };
+		A70F44DD2A26C91A00DC3902 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44DC2A26C91A00DC3902 /* ImageDownloader.swift */; };
+		A70F44DF2A26C93D00DC3902 /* ImageDownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44DE2A26C93D00DC3902 /* ImageDownloaderProtocol.swift */; };
+		A70F44E22A26C9AF00DC3902 /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44E12A26C9AF00DC3902 /* UserDetail.swift */; };
+		A70F44E42A26CB0100DC3902 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44E32A26CB0100DC3902 /* Repository.swift */; };
+		A70F44E62A26CBE700DC3902 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44E52A26CBE700DC3902 /* User.swift */; };
+		A70F44EB2A26CD6300DC3902 /* HomeDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44EA2A26CD6300DC3902 /* HomeDomain.swift */; };
+		A70F44ED2A26CE0100DC3902 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44EC2A26CE0100DC3902 /* HomeService.swift */; };
+		A70F44EF2A26CE6600DC3902 /* HomeServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44EE2A26CE6600DC3902 /* HomeServiceProtocol.swift */; };
+		A70F44F12A26CEAA00DC3902 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44F02A26CEAA00DC3902 /* HomeViewModel.swift */; };
+		A70F44F42A26D0E900DC3902 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44F32A26D0E900DC3902 /* HomeViewController.swift */; };
+		A70F44F82A26D18D00DC3902 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44F72A26D18D00DC3902 /* Coordinator.swift */; };
+		A70F44FA2A26D1B600DC3902 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44F92A26D1B600DC3902 /* CoordinatorProtocol.swift */; };
+		A70F44FC2A26D1FC00DC3902 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44FB2A26D1FC00DC3902 /* HomeCoordinator.swift */; };
+		A70F44FF2A26D2CB00DC3902 /* UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F44FE2A26D2CB00DC3902 /* UIState.swift */; };
+		A70F45012A26D2F100DC3902 /* HomeViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F45002A26D2F100DC3902 /* HomeViewController+TableView.swift */; };
+		A70F45032A26D4B700DC3902 /* ActivityIndicatorPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F45022A26D4B700DC3902 /* ActivityIndicatorPresenting.swift */; };
+		A70F45052A26D8E500DC3902 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F45042A26D8E500DC3902 /* HomeTableViewCell.swift */; };
+		A70F45082A26D9AC00DC3902 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F45072A26D9AC00DC3902 /* UIImageViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +75,32 @@
 		A70F44B52A26C48100DC3902 /* GitHubApiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubApiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A70F44B92A26C48100DC3902 /* GitHubApiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApiUITests.swift; sourceTree = "<group>"; };
 		A70F44BB2A26C48100DC3902 /* GitHubApiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A70F44C92A26C61300DC3902 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
+		A70F44CB2A26C63800DC3902 /* NetworkCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCore.swift; sourceTree = "<group>"; };
+		A70F44CD2A26C74A00DC3902 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		A70F44D02A26C78000DC3902 /* ReachabilityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityModel.swift; sourceTree = "<group>"; };
+		A70F44D32A26C8A100DC3902 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		A70F44D52A26C8C500DC3902 /* ClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientProtocol.swift; sourceTree = "<group>"; };
+		A70F44D72A26C8E500DC3902 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		A70F44DA2A26C8FF00DC3902 /* ImageCacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
+		A70F44DC2A26C91A00DC3902 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		A70F44DE2A26C93D00DC3902 /* ImageDownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderProtocol.swift; sourceTree = "<group>"; };
+		A70F44E12A26C9AF00DC3902 /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
+		A70F44E32A26CB0100DC3902 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		A70F44E52A26CBE700DC3902 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A70F44EA2A26CD6300DC3902 /* HomeDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDomain.swift; sourceTree = "<group>"; };
+		A70F44EC2A26CE0100DC3902 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		A70F44EE2A26CE6600DC3902 /* HomeServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServiceProtocol.swift; sourceTree = "<group>"; };
+		A70F44F02A26CEAA00DC3902 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A70F44F32A26D0E900DC3902 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A70F44F72A26D18D00DC3902 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		A70F44F92A26D1B600DC3902 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		A70F44FB2A26D1FC00DC3902 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		A70F44FE2A26D2CB00DC3902 /* UIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIState.swift; sourceTree = "<group>"; };
+		A70F45002A26D2F100DC3902 /* HomeViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+TableView.swift"; sourceTree = "<group>"; };
+		A70F45022A26D4B700DC3902 /* ActivityIndicatorPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorPresenting.swift; sourceTree = "<group>"; };
+		A70F45042A26D8E500DC3902 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		A70F45072A26D9AC00DC3902 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +151,10 @@
 		A70F44972A26C47F00DC3902 /* GitHubApi */ = {
 			isa = PBXGroup;
 			children = (
+				A70F44F52A26D16500DC3902 /* Commons */,
+				A70F44E72A26CCA000DC3902 /* Scenes */,
+				A70F44E02A26C96F00DC3902 /* Model */,
+				A70F44C82A26C60900DC3902 /* Network */,
 				A70F44982A26C47F00DC3902 /* AppDelegate.swift */,
 				A70F449A2A26C47F00DC3902 /* SceneDelegate.swift */,
 				A70F449C2A26C47F00DC3902 /* ViewController.swift */,
@@ -125,6 +181,132 @@
 				A70F44BB2A26C48100DC3902 /* GitHubApiUITestsLaunchTests.swift */,
 			);
 			path = GitHubApiUITests;
+			sourceTree = "<group>";
+		};
+		A70F44C82A26C60900DC3902 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A70F44D92A26C8F700DC3902 /* Image */,
+				A70F44D22A26C89B00DC3902 /* Protocols */,
+				A70F44CF2A26C76100DC3902 /* Reachability */,
+				A70F44C92A26C61300DC3902 /* ClientError.swift */,
+				A70F44CB2A26C63800DC3902 /* NetworkCore.swift */,
+				A70F44D72A26C8E500DC3902 /* Result.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A70F44CF2A26C76100DC3902 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				A70F44CD2A26C74A00DC3902 /* Reachability.swift */,
+				A70F44D02A26C78000DC3902 /* ReachabilityModel.swift */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		A70F44D22A26C89B00DC3902 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A70F44D32A26C8A100DC3902 /* URLSessionProtocol.swift */,
+				A70F44D52A26C8C500DC3902 /* ClientProtocol.swift */,
+				A70F44DE2A26C93D00DC3902 /* ImageDownloaderProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A70F44D92A26C8F700DC3902 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				A70F44DA2A26C8FF00DC3902 /* ImageCacher.swift */,
+				A70F44DC2A26C91A00DC3902 /* ImageDownloader.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		A70F44E02A26C96F00DC3902 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A70F44E12A26C9AF00DC3902 /* UserDetail.swift */,
+				A70F44E32A26CB0100DC3902 /* Repository.swift */,
+				A70F44E52A26CBE700DC3902 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A70F44E72A26CCA000DC3902 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A70F44E82A26CCAC00DC3902 /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A70F44E82A26CCAC00DC3902 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A70F44F22A26D0E300DC3902 /* View */,
+				A70F44E92A26CCB800DC3902 /* Service */,
+				A70F44F02A26CEAA00DC3902 /* HomeViewModel.swift */,
+				A70F44FB2A26D1FC00DC3902 /* HomeCoordinator.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A70F44E92A26CCB800DC3902 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A70F44EA2A26CD6300DC3902 /* HomeDomain.swift */,
+				A70F44EC2A26CE0100DC3902 /* HomeService.swift */,
+				A70F44EE2A26CE6600DC3902 /* HomeServiceProtocol.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A70F44F22A26D0E300DC3902 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A70F44F32A26D0E900DC3902 /* HomeViewController.swift */,
+				A70F45002A26D2F100DC3902 /* HomeViewController+TableView.swift */,
+				A70F45042A26D8E500DC3902 /* HomeTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A70F44F52A26D16500DC3902 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				A70F45062A26D99D00DC3902 /* Extensions */,
+				A70F44FD2A26D2C600DC3902 /* View */,
+				A70F44F62A26D18700DC3902 /* Coordinator */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		A70F44F62A26D18700DC3902 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A70F44F72A26D18D00DC3902 /* Coordinator.swift */,
+				A70F44F92A26D1B600DC3902 /* CoordinatorProtocol.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		A70F44FD2A26D2C600DC3902 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A70F44FE2A26D2CB00DC3902 /* UIState.swift */,
+				A70F45022A26D4B700DC3902 /* ActivityIndicatorPresenting.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A70F45062A26D99D00DC3902 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A70F45072A26D9AC00DC3902 /* UIImageViewExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +441,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				A70F449D2A26C47F00DC3902 /* ViewController.swift in Sources */,
+				A70F44E22A26C9AF00DC3902 /* UserDetail.swift in Sources */,
+				A70F45052A26D8E500DC3902 /* HomeTableViewCell.swift in Sources */,
+				A70F44E42A26CB0100DC3902 /* Repository.swift in Sources */,
+				A70F45012A26D2F100DC3902 /* HomeViewController+TableView.swift in Sources */,
+				A70F44F12A26CEAA00DC3902 /* HomeViewModel.swift in Sources */,
+				A70F44CC2A26C63800DC3902 /* NetworkCore.swift in Sources */,
+				A70F44FC2A26D1FC00DC3902 /* HomeCoordinator.swift in Sources */,
+				A70F44F42A26D0E900DC3902 /* HomeViewController.swift in Sources */,
+				A70F44F82A26D18D00DC3902 /* Coordinator.swift in Sources */,
+				A70F44E62A26CBE700DC3902 /* User.swift in Sources */,
+				A70F44CE2A26C74A00DC3902 /* Reachability.swift in Sources */,
+				A70F44ED2A26CE0100DC3902 /* HomeService.swift in Sources */,
+				A70F44EB2A26CD6300DC3902 /* HomeDomain.swift in Sources */,
+				A70F44CA2A26C61300DC3902 /* ClientError.swift in Sources */,
+				A70F45082A26D9AC00DC3902 /* UIImageViewExtension.swift in Sources */,
+				A70F44D42A26C8A100DC3902 /* URLSessionProtocol.swift in Sources */,
+				A70F44EF2A26CE6600DC3902 /* HomeServiceProtocol.swift in Sources */,
+				A70F44FF2A26D2CB00DC3902 /* UIState.swift in Sources */,
 				A70F44992A26C47F00DC3902 /* AppDelegate.swift in Sources */,
+				A70F44D82A26C8E500DC3902 /* Result.swift in Sources */,
+				A70F44D12A26C78000DC3902 /* ReachabilityModel.swift in Sources */,
+				A70F44FA2A26D1B600DC3902 /* CoordinatorProtocol.swift in Sources */,
+				A70F44D62A26C8C500DC3902 /* ClientProtocol.swift in Sources */,
+				A70F45032A26D4B700DC3902 /* ActivityIndicatorPresenting.swift in Sources */,
+				A70F44DB2A26C8FF00DC3902 /* ImageCacher.swift in Sources */,
+				A70F44DD2A26C91A00DC3902 /* ImageDownloader.swift in Sources */,
 				A70F449B2A26C47F00DC3902 /* SceneDelegate.swift in Sources */,
+				A70F44DF2A26C93D00DC3902 /* ImageDownloaderProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
