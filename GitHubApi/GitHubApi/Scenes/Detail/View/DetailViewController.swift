@@ -30,6 +30,7 @@ final class DetailViewController: UIViewController, ActivityIndicatorPresenting 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         loadUsers()
         self.title = viewModel?.getUsername()
     }
