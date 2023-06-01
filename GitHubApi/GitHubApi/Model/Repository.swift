@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RepoUserModel: Codable {
+struct Repository: Codable {
     let name: String?
     let fullName: String?
     let htmlURL: String?

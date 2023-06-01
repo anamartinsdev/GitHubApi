@@ -28,16 +28,4 @@ struct User: Codable {
         case type
         case isSiteAdmin = "site_admin"
     }
-
-    init() {
-        login = ""
-        id = 0
-        nodeId = ""
-        avatarURL = ""
-        url = ""
-        htmlURL = ""
-        gistsURL = ""
-        type = ""
-        isSiteAdmin = false
-    }
 }

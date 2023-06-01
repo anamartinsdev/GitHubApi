@@ -17,6 +17,7 @@ final class HomeTableViewCell: UITableViewCell {
     private lazy var loginLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         return label
     }()
     
@@ -26,7 +27,7 @@ final class HomeTableViewCell: UITableViewCell {
         imageView.layer.cornerRadius = 25
         imageView.clipsToBounds = true
         imageView.layer.borderWidth = 2.0
-        imageView.layer.borderColor = UIColor.systemGray3.cgColor
+        imageView.layer.borderColor = UIColor.darkGray.cgColor
         return imageView
     }()
     
@@ -54,8 +55,8 @@ final class HomeTableViewCell: UITableViewCell {
             userImageView.heightAnchor.constraint(equalToConstant: 50),
             userImageView.widthAnchor.constraint(equalTo: userImageView.heightAnchor),
                        
-            loginLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            loginLabel.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 8),
+            loginLabel.centerYAnchor.constraint(equalTo: userImageView.centerYAnchor),
+            loginLabel.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 12),
             loginLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -16)
         ])
     }

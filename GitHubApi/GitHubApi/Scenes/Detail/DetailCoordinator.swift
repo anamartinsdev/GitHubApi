@@ -1,5 +1,5 @@
 //
-//  HomeCoordinator.swift
+//  DetailCoordinator.swift
 //  GitHubApi
 //
 //  Created by Ana Carolina Martins Pessoa on 30/05/23.
@@ -8,26 +8,29 @@
 import Foundation
 import UIKit
 
-protocol HomeCoordinatorProtocol {
+protocol DetailCoordinatorProtocol {
     func navigateToNextController(user: User)
 }
 
-final class HomeCoordinator: CoordinatorProtocol {
+final class DetailCoordinator: CoordinatorProtocol {
     var navigationController: UINavigationController
+    var user: User?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
     func start() {
-        let viewController = HomeViewController(viewModel: HomeViewModel(coordinator: self))
+        let viewModel = DetailViewModel(coordinator: self)
+        viewModel.user = user
+        let viewController = DetailViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: false)
     }
 }
 
-extension HomeCoordinator: HomeCoordinatorProtocol {
+extension DetailCoordinator: DetailCoordinatorProtocol {
     func navigateToNextController(user: User) {
-        let coord = DetailCoordinator(navigationController: navigationController)
+        let coord = RepositoriesCoordinator(navigationController: navigationController)
         coord.user = user
         coord.start()
     }

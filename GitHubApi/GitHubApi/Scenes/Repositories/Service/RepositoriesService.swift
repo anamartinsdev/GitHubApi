@@ -1,13 +1,13 @@
 //
-//  HomeService.swift
+//  RepositoriesService.swift
 //  GitHubApi
 //
-//  Created by Ana Carolina Martins Pessoa on 30/05/23.
+//  Created by Ana Carolina Martins Pessoa on 31/05/23.
 //
 
 import Foundation
 
-final class HomeService: HomeServiceProtocol {
+final class RepositoriesService: RepositoriesServiceProtocol {
     private let client: ClientProtocol
     private lazy var queue: OperationQueue = {
         let operation = OperationQueue()
@@ -20,13 +20,14 @@ final class HomeService: HomeServiceProtocol {
         self.client = client
     }
 
-    func fetchUsers(completion: @escaping (Result<[User]>) -> Void) {
+    func fetchUserRepositories(username: String,
+                         completion: @escaping (Result<[Repository]>) -> Void) {
         queue.addOperation { [weak self] in
             guard let gateway = self else { return }
-            gateway.client.requestData(with: HomeDomain.fetchUsers) { (result: Result<[User]>) in
+            gateway.client.requestData(with: RepositoriesDomain.fetchUserRepositories(username: username)) { (result: Result<[Repository]>) in
                 switch result {
-                case let .success(users):
-                    completion(.success(users))
+                case let .success(repositories):
+                    completion(.success(repositories))
                 case let .failure(error):
                     completion(.failure(error))
                 }

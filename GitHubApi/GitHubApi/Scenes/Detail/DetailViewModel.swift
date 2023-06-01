@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  DetailViewModel.swift
 //  GitHubApi
 //
 //  Created by Ana Carolina Martins Pessoa on 30/05/23.
@@ -7,33 +7,30 @@
 
 import Foundation
 
-protocol HomeViewModelViewDelegate: AnyObject {
+protocol DetailViewModelDelegate: AnyObject {
     func receivedData()
 }
 
-protocol HomeViewModelProtocol: AnyObject {
-    func loadUsers()
-    func numberOfRows() -> Int
-    func getUserRow(indexPath: IndexPath) -> User
-    func didTapCell(with user: User)
+protocol DetailViewModelProtocol: AnyObject {
+    func loadUserDetail(completion: @escaping (UserDetail?) -> Void)
+    func didTapButton()
+    func getUsername() -> String
     var showAlertClosure: (() -> ())? { get set }
     var updateLoadingStatus: (() -> ())?  { get set }
     var internetConnectionStatus: (() -> ())?  { get set }
     var serverErrorStatus: (() -> ())?  { get set }
-    var didGetData: (() -> ())?  { get set }
     var isLoading: Bool { get set }
-    var viewDelegate: HomeViewModelViewDelegate? { get set }
+    var delegate: DetailViewModelDelegate? { get set }
 }
 
-final class HomeViewModel {
-    
-    private let service: HomeServiceProtocol
-    weak var viewDelegate: HomeViewModelViewDelegate?
-    var coordinator: HomeCoordinatorProtocol?
-    
-    var users: [User] = [User]()
+final class DetailViewModel {
 
-    var user: UserDetail?
+    private let service: DetailServiceProtocol
+    weak var delegate: DetailViewModelDelegate?
+    var coordinator: DetailCoordinatorProtocol?
+    var userDetail: UserDetail?
+    var username: String = ""
+    var user: User?
     
     //MARK: -- Network checking
     
@@ -47,7 +44,7 @@ final class HomeViewModel {
             self.internetConnectionStatus?()
         }
     }
-    
+
     //MARK: -- UI Status
     
     /// Update the loading status, use HUD or Activity Indicator UI
@@ -63,15 +60,14 @@ final class HomeViewModel {
             self.showAlertClosure?()
         }
     }
-    
+
     //MARK: -- Closure Collection
     var showAlertClosure: (() -> ())?
     var updateLoadingStatus: (() -> ())?
     var internetConnectionStatus: (() -> ())?
     var serverErrorStatus: (() -> ())?
-    var didGetData: (() -> ())?
     
-    init(withHome serviceProtocol: HomeServiceProtocol = HomeService(client: NetworkCore()), coordinator: HomeCoordinatorProtocol) {
+    init(withHome serviceProtocol: DetailServiceProtocol = DetailService(client: NetworkCore()), coordinator: DetailCoordinatorProtocol) {
         self.service = serviceProtocol
         self.coordinator = coordinator
         NotificationCenter.default.addObserver(self, selector: #selector(self.networkStatusChanged(_:)), name: NSNotification.Name(rawValue: Reachability.ReachabilityStatusChangedNotification), object: nil)
@@ -85,21 +81,25 @@ final class HomeViewModel {
     }
 }
 
-extension HomeViewModel: HomeViewModelProtocol {
-    func loadUsers() {
+extension DetailViewModel: DetailViewModelProtocol {
+    func loadUserDetail(completion: @escaping (UserDetail?) -> Void) {
         self.isLoading = true
         switch networkStatus {
         case .offline:
             self.isDisconnected = true
             self.isLoading = false
             self.internetConnectionStatus?()
+            completion(nil)
         case .online:
-            service.fetchUsers { [weak self] (result) in
+            service.fetchUserDetail(username: user?.login ?? "") { [weak self] (result) in
                 switch result {
-                case let .success(users):
+                case let .success(user):
                     self?.isLoading = false
-                    self?.users = users
-                    self?.didGetData?()
+                    self?.userDetail = user
+                    guard let userDetail = self?.userDetail else {
+                        return
+                    }
+                    completion(userDetail)
                 case let .failure(error):
                     switch error {
                     case .urlNotFound,
@@ -111,25 +111,25 @@ extension HomeViewModel: HomeViewModelProtocol {
                             .invalidHttpResponse,
                             .unknown:
                         self?.serverErrorStatus?()
+                        completion(nil)
                     }
                 }
             }
         default:
             self.isLoading = false
+            completion(nil)
             break
         }
     }
 
-    func numberOfRows() -> Int {
-        return users.count
-    }
-    
-    func getUserRow(indexPath: IndexPath) -> User {
-        return users[indexPath.row]
-    }
-
-    func didTapCell(with user: User) {
+    func didTapButton() {
+        guard let user = user else {
+            return
+        }
         coordinator?.navigateToNextController(user: user)
     }
-}
 
+    func getUsername() -> String {
+        return user?.login ?? ""
+    }
+}

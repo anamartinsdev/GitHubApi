@@ -1,39 +1,41 @@
 //
-//  HomeViewModel.swift
+//  RepositoriesViewModel.swift
 //  GitHubApi
 //
-//  Created by Ana Carolina Martins Pessoa on 30/05/23.
+//  Created by Ana Carolina Martins Pessoa on 31/05/23.
 //
 
 import Foundation
 
-protocol HomeViewModelViewDelegate: AnyObject {
+protocol RepositoriesViewModelDelegate: AnyObject {
     func receivedData()
 }
 
-protocol HomeViewModelProtocol: AnyObject {
-    func loadUsers()
+protocol RepositoriesViewModelProtocol: AnyObject {
+    func loadRepositories()
     func numberOfRows() -> Int
-    func getUserRow(indexPath: IndexPath) -> User
-    func didTapCell(with user: User)
+    func getRepositoryRow(indexPath: IndexPath) -> Repository
+    func didOpenRepositoryURL(indexPath: IndexPath)
     var showAlertClosure: (() -> ())? { get set }
     var updateLoadingStatus: (() -> ())?  { get set }
     var internetConnectionStatus: (() -> ())?  { get set }
     var serverErrorStatus: (() -> ())?  { get set }
     var didGetData: (() -> ())?  { get set }
     var isLoading: Bool { get set }
-    var viewDelegate: HomeViewModelViewDelegate? { get set }
+    var viewDelegate: RepositoriesViewModelDelegate? { get set }
 }
 
-final class HomeViewModel {
+final class RepositoriesViewModel {
     
-    private let service: HomeServiceProtocol
-    weak var viewDelegate: HomeViewModelViewDelegate?
-    var coordinator: HomeCoordinatorProtocol?
+    private let service: RepositoriesServiceProtocol
+    weak var viewDelegate: RepositoriesViewModelDelegate?
+    var coordinator: RepositoriesCoordinatorProtocol?
     
-    var users: [User] = [User]()
+    //var repositories: [Dictionary<String?, [Repository]>.Element] = [Dictionary<String?, [Repository]>.Element]()
+    var repositories: [Repository] = [Repository]()
 
-    var user: UserDetail?
+    var userDetail: UserDetail?
+    var user: User?
     
     //MARK: -- Network checking
     
@@ -71,7 +73,7 @@ final class HomeViewModel {
     var serverErrorStatus: (() -> ())?
     var didGetData: (() -> ())?
     
-    init(withHome serviceProtocol: HomeServiceProtocol = HomeService(client: NetworkCore()), coordinator: HomeCoordinatorProtocol) {
+    init(withHome serviceProtocol: RepositoriesServiceProtocol = RepositoriesService(client: NetworkCore()), coordinator: RepositoriesCoordinatorProtocol) {
         self.service = serviceProtocol
         self.coordinator = coordinator
         NotificationCenter.default.addObserver(self, selector: #selector(self.networkStatusChanged(_:)), name: NSNotification.Name(rawValue: Reachability.ReachabilityStatusChangedNotification), object: nil)
@@ -85,8 +87,8 @@ final class HomeViewModel {
     }
 }
 
-extension HomeViewModel: HomeViewModelProtocol {
-    func loadUsers() {
+extension RepositoriesViewModel: RepositoriesViewModelProtocol {
+    func loadRepositories() {
         self.isLoading = true
         switch networkStatus {
         case .offline:
@@ -94,11 +96,11 @@ extension HomeViewModel: HomeViewModelProtocol {
             self.isLoading = false
             self.internetConnectionStatus?()
         case .online:
-            service.fetchUsers { [weak self] (result) in
+            service.fetchUserRepositories(username: user?.login ?? "") { [weak self] (result) in
                 switch result {
-                case let .success(users):
+                case let .success(repositories):
                     self?.isLoading = false
-                    self?.users = users
+                    self?.repositories = repositories
                     self?.didGetData?()
                 case let .failure(error):
                     switch error {
@@ -121,15 +123,16 @@ extension HomeViewModel: HomeViewModelProtocol {
     }
 
     func numberOfRows() -> Int {
-        return users.count
+        return repositories.count
     }
     
-    func getUserRow(indexPath: IndexPath) -> User {
-        return users[indexPath.row]
+    func getRepositoryRow(indexPath: IndexPath) -> Repository {
+        return repositories[indexPath.row]
     }
 
-    func didTapCell(with user: User) {
-        coordinator?.navigateToNextController(user: user)
+    func didOpenRepositoryURL(indexPath: IndexPath) {
+        let repo = getRepositoryRow(indexPath: indexPath)
+        let path = repo.htmlURL ?? ""
+        coordinator?.openRepository(with: path)
     }
 }
-

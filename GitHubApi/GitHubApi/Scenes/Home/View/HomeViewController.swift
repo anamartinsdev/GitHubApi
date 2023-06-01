@@ -98,7 +98,6 @@ extension HomeViewController {
         tableView.separatorInset = .zero
         tableView.layoutMargins = .zero
         tableView.separatorStyle = .singleLine
-        tableView.sectionHeaderTopPadding = 0
         tableView.separatorStyle = .none
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
